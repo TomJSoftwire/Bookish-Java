@@ -8,7 +8,7 @@ import java.util.List;
 @Service
 public class BookService extends DatabaseService{
 
-    public List<Book> getAllAuthorBooks() {
+    public List<Book> getAllBooks() {
         return jdbi.withHandle(handle ->
                 handle.createQuery("SELECT * FROM book")
                         .mapToBean(Book.class)

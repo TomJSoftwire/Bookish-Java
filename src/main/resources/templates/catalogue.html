@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Bookish - Catalogue</title>
+
+    <link rel="stylesheet" href="/styles/general.css"/>
+    <link rel="stylesheet" href="/styles/navbar.css"/>
+</head>
+
+<body>
+
+<div th:replace="fragments/navbar :: navbar">
+    <!-- This element is replaced by the HTML in fragments/navbar.html -->
+</div>
+
+<div class="container">
+    <h2>Here are the books in the catalogue:</h2>
+    <div class = "book-list">
+        <div th:each="book : ${model.books}" class ="book">
+            <h2 th:text="${book.title}"></h2>
+            <h2 th:text="${book.isbn}"></h2>
+        </div>
+    </div>
+</div>
+
+</body>
+
+
+</html>

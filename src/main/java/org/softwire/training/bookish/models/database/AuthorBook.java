@@ -8,8 +8,10 @@ public class AuthorBook {
     public int getIsbn(){
         return isbn;
     }
+    public void setIsbn(int isbn){ this.isbn = isbn; }
 
     public int getAuthorId(){
         return authorId;
     }
+    public void setAuthorId(int authorId){ this.authorId = authorId; }
 }
