@@ -12,25 +12,12 @@ public class Main {
 
     public static void main(String[] args) throws SQLException {
         String hostname = "localhost:3306";
-        String database = "library";
-        String user = "root";
-        String password = "admin";
+        String database = System.getenv("DB_NAME");
+        String user = System.getenv("DB_USER");
+        String password = System.getenv("DB_PASS");
         String connectionString = "jdbc:mysql://" + hostname + "/" + database + "?user=" + user + "&password=" + password+ "&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT&useSSL=false";
 
-        //jdbcMethod(connectionString);
         jdbiMethod(connectionString);
-    }
-
-    private static void jdbcMethod(String connectionString) throws SQLException {
-        System.out.println("JDBC method...");
-
-        // TODO: print out the details of all the books (using JDBC)
-        // See this page for details: https://docs.oracle.com/javase/tutorial/jdbc/basics/processingsqlstatements.html
-
-        Connection connection = DriverManager.getConnection(connectionString);
-
-
-
     }
 
     private static void jdbiMethod(String connectionString) {

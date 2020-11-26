@@ -4,7 +4,7 @@ import org.jdbi.v3.core.Jdbi;
 
 public abstract class DatabaseService {
 
-    private final String hostname = "localhost";
+    private final String hostname = "localhost:3306";
     private final String database = System.getenv("DB_NAME");
     private final String user = System.getenv("DB_USER");
     private final String password = System.getenv("DB_PASS");
