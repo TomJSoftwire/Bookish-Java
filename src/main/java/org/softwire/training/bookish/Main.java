@@ -1,6 +1,7 @@
 package org.softwire.training.bookish;
 
 import org.jdbi.v3.core.Jdbi;
+import org.softwire.training.bookish.services.LoanService;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -16,22 +17,15 @@ public class Main {
         String user = "root";
         String password = "admin";
         String connectionString = "jdbc:mysql://" + hostname + "/" + database + "?user=" + user + "&password=" + password+ "&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT&useSSL=false";
-
-        //jdbcMethod(connectionString);
+        System.out.println(System.getenv("DB_NAME"));
         jdbiMethod(connectionString);
+
+        LoanService loanService = new LoanService(){
+
+        };
+        System.out.println(loanService.getAllLoans().getClass());
     }
 
-    private static void jdbcMethod(String connectionString) throws SQLException {
-        System.out.println("JDBC method...");
-
-        // TODO: print out the details of all the books (using JDBC)
-        // See this page for details: https://docs.oracle.com/javase/tutorial/jdbc/basics/processingsqlstatements.html
-
-        Connection connection = DriverManager.getConnection(connectionString);
-
-
-
-    }
 
     private static void jdbiMethod(String connectionString) {
         System.out.println("\nJDBI method...");
