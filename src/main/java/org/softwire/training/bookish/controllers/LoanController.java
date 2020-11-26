@@ -29,7 +29,7 @@ public class LoanController {
     ModelAndView loans() {
 
         List<Loan> allLoans = loanService.getAllLoans();
-        //allLoans.stream().forEach(i -> i.setMemberName(memberService.getMemberFromId(i.getMemberId())));
+        allLoans.stream().forEach(i -> i.setMember(memberService.getMemberFromId(i.getMemberId())));
 
         LoanPageModel loanPageModel = new LoanPageModel();
 
