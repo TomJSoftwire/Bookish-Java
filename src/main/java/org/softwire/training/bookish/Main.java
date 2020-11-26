@@ -13,19 +13,14 @@ public class Main {
 
     public static void main(String[] args) throws SQLException {
         String hostname = "localhost:3306";
-        String database = "library";
-        String user = "root";
-        String password = "admin";
+        String database = System.getenv("DB_NAME");
+        String user = System.getenv("DB_USER");
+        String password = System.getenv("DB_PASS");
         String connectionString = "jdbc:mysql://" + hostname + "/" + database + "?user=" + user + "&password=" + password+ "&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT&useSSL=false";
-        System.out.println(System.getenv("DB_NAME"));
+
+
         jdbiMethod(connectionString);
-
-        LoanService loanService = new LoanService(){
-
-        };
-        System.out.println(loanService.getAllLoans().getClass());
     }
-
 
     private static void jdbiMethod(String connectionString) {
         System.out.println("\nJDBI method...");
