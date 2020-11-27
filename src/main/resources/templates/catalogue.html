@@ -6,6 +6,7 @@
 
     <link rel="stylesheet" href="/styles/general.css"/>
     <link rel="stylesheet" href="/styles/navbar.css"/>
+    <link rel="stylesheet" href="/styles/about.css"/>
 </head>
 
 <body>
@@ -17,11 +18,39 @@
 <div class="container">
     <h2>Here are the books in the catalogue:</h2>
     <div class = "book-list">
-        <div th:each="book : ${model.books}" class ="book">
-            <h2 th:text="${book.title}"></h2>
-            <h2 th:text="${book.isbn}"></h2>
-        </div>
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>ISBN</th>
+            </tr>
+            <tr th:each="book : ${model.books}" class="book">
+                <th th:text="${book.title}"></th>
+                <th th:text="${book.isbn}"></th>
+                <th>
+                    <a th:href="${'/catalogue/delete-book?isbn=' + book.isbn}" class="delete-button">delete</a>
+                </th>
+            </tr>
+        </table>
     </div>
+    <h2>Add a book:</h2>
+    <form th:action="@{/catalogue/add-book}" method="post">
+        <div class="add-book-row">
+            <label>
+                <span>Title: </span>
+                <input type="text" name="title">
+            </label>
+        </div>
+        <div class="add-book-row">
+            <label>
+                <span>ISBN: </span>
+                <input type="text" name="isbn">
+            </label>
+        </div>
+        <div class="add-book-row">
+            <span><!-- spacer --></span>
+            <input type="submit" value="Add book" />
+        </div>
+    </form>
 </div>
 
 </body>
