@@ -8,15 +8,6 @@ import java.util.List;
 
 public class LoanPageModel {
     private List<Loan> loans;
-    private MemberService memberService;
-
-    public MemberService getMemberService() {
-        return memberService;
-    }
-
-    public void setMemberService(MemberService memberService) {
-        this.memberService = memberService;
-    }
 
     public List<Loan> getLoans() {
         return loans;

@@ -7,11 +7,17 @@ import java.util.List;
 
 @Service
 public class LoanService extends DatabaseService {
+    private MemberService memberService = new MemberService();
     public List<Loan> getAllLoans() {
-        return jdbi.withHandle(handle ->
+        List<Loan> allLoans =  jdbi.withHandle(handle ->
                 handle.createQuery("SELECT * FROM loan")
                         .mapToBean(Loan.class)
-                        .list());
+                        .list()
+        );
+        allLoans.stream().forEach(i -> {
+            i.setMember(memberService.getMemberFromId(i.getMemberId()));
+        });
+        return allLoans;
     }
 
     public void addLoan(Loan loan) {
