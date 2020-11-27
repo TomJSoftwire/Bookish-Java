@@ -7,7 +7,6 @@ import java.util.Date;
 public class Loan {
     private int loanId;
     private int memberId;
-    private Member member;
     private int copyId;
     private Date loanDate;
     private Date dueDate;
@@ -15,14 +14,6 @@ public class Loan {
 
     public int getLoanId() {
         return loanId;
-    }
-
-    public Member getMember() {
-        return member;
-    }
-
-    public void setMember(Member member) {
-        this.member = member;
     }
 
     public void setLoanId(int loanId) {

@@ -1,7 +1,9 @@
 package org.softwire.training.bookish;
 
 import org.jdbi.v3.core.Jdbi;
+import org.softwire.training.bookish.models.database.Member;
 import org.softwire.training.bookish.services.LoanService;
+import org.softwire.training.bookish.services.MemberService;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -20,6 +22,9 @@ public class Main {
 
 
         jdbiMethod(connectionString);
+        MemberService memberService = new MemberService();
+        List<Member> allMembers = memberService.getAllMembers();
+        System.out.println(allMembers.get(0).getMemberLoans());
     }
 
     private static void jdbiMethod(String connectionString) {
