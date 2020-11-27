@@ -30,7 +30,7 @@
         </tr>
         <tr th:each="loan : ${model.loans}">
             <td th:text="${loan.loanId}"></td>
-            <td th:text="${loan.member.memberName}"></td>
+            <td th:text="${loan.memberId}"></td>
             <td th:text="${loan.copyId}"></td>
             <td th:text="${loan.loanDate}"></td>
             <td th:text="${loan.dueDate}"></td>

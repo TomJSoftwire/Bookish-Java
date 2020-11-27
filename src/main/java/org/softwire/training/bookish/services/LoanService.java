@@ -14,9 +14,6 @@ public class LoanService extends DatabaseService {
                         .mapToBean(Loan.class)
                         .list()
         );
-        allLoans.stream().forEach(i -> {
-            i.setMember(memberService.getMemberFromId(i.getMemberId()));
-        });
         return allLoans;
     }
 
